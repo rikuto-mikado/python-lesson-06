@@ -1,6 +1,18 @@
 ## What I Learned
 
+- **Content-Based Filtering (CBF)**: A recommendation system that suggests items similar to what users liked by comparing item features (text overviews in this case)
+- **Text Vectorization**: Converting movie overviews into numerical vectors using TF-IDF scores
+- **Similarity Computation**: Using `linear_kernel()` to calculate cosine similarity between movie vectors to find recommendations
+- **NumPy Array Manipulation**: Extracting and sorting similarity scores using `enumerate()` and `lambda` functions
+- **Pandas DataFrame Operations**: Filtering by conditions, extracting values using `.iloc[]`, and data type conversions
+
 ## What Was Difficult
+
+- **Spelling errors**: `sklearn.metrics.parwise` should be `sklearn.metrics.pairwise`
+- **NumPy type display**: `np.float64()` wrapper in output — fixed by converting to native Python list with `.tolist()`
+- **Bracket matching**: Missing closing parentheses in function definitions
+- **Pandas column indexing**: Correct syntax is `movies["title"].iloc[indices]`, not `movies["title".iloc[indices]`
+- **Lambda functions in sorted()**: Understanding how `key=lambda x: x[1]` extracts the second element from tuples for sorting criteria
 
 ## Notes
 
@@ -10,19 +22,19 @@ A technique to quantify how important a word is within a document relative to a 
 
 **TF-IDF = TF × IDF**
 
-| Component | Full Name | What it measures |
-|-----------|-----------|-----------------|
-| TF | Term Frequency | How often a word appears in a single document |
-| IDF | Inverse Document Frequency | How rare the word is across all documents |
+| Component | Full Name                  | What it measures                              |
+| --------- | -------------------------- | --------------------------------------------- |
+| TF        | Term Frequency             | How often a word appears in a single document |
+| IDF       | Inverse Document Frequency | How rare the word is across all documents     |
 
 A word scores high when it appears **frequently in one document** but **rarely across the corpus** — making it a meaningful signal for that document.
 
 **Example:**
 
-| Word | TF (in this movie) | IDF (rarity) | TF-IDF |
-|------|--------------------|--------------|--------|
-| `car` | high | high (only 1/6 movies) | **high → important** |
-| `the` | high | low (appears in all movies) | **low → not important** |
+| Word  | TF (in this movie) | IDF (rarity)                | TF-IDF                  |
+| ----- | ------------------ | --------------------------- | ----------------------- |
+| `car` | high               | high (only 1/6 movies)      | **high → important**    |
+| `the` | high               | low (appears in all movies) | **low → not important** |
 
 Common words like "the" or "a" are removed via `stop_words="english"` before scoring.
 
