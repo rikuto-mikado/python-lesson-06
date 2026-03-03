@@ -14,6 +14,17 @@
 - **Pandas column indexing**: Correct syntax is `movies["title"].iloc[indices]`, not `movies["title".iloc[indices]`
 - **Lambda functions in sorted()**: Understanding how `key=lambda x: x[1]` extracts the second element from tuples for sorting criteria
 
+## Reference Docs
+
+| Doc | Topics |
+|---|---|
+| [Python Conventions](docs/python_conventions.md) | `_` for unused variables, NumPy type casting, `*` unpacking |
+| [Data Structures](docs/data_structures.md) | list / set / dict / tuple — methods and when to use each |
+| [Sparse Matrix](docs/sparse_matrix.md) | CSR/COO formats, building, iterating, memory comparison |
+| [Pandas Patterns](docs/pandas_patterns.md) | iterrows, factorize, filtering, groupby, mapping |
+
+---
+
 ## Notes
 
 ### TF-IDF (Term Frequency - Inverse Document Frequency)
